@@ -26,7 +26,7 @@ resource "aws_lambda_function" "basic_auth_lambda" {
   filename         = "${data.archive_file.basic_auth_lambda.output_path}"
   source_code_hash = "${data.archive_file.basic_auth_lambda.output_base64sha256}"
 
-  function_name = "${var.domain}-lambda-tf"
+  function_name = "basic_auth_${replace(var.domain, ".", "_")}_tf"
   handler       = "index.handler"
 
   timeout     = "3"
