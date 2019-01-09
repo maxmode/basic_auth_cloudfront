@@ -53,12 +53,12 @@ data "aws_iam_policy_document" "this" {
 }
 
 resource "aws_iam_role_policy" "this" {
-  name   = "${var.domain}-basic-auth-policy"
+  name   = "${replace(var.domain, ".", "-")}-basic-auth-policy"
   role   = "${aws_iam_role.this.id}"
   policy = "${data.aws_iam_policy_document.this.json}"
 }
 
 resource "aws_iam_role" "this" {
-  name               = "${var.domain}-basic-auth-role"
+  name               = "${replace(var.domain, ".", "-")}-basic-auth-role"
   assume_role_policy = "${data.aws_iam_policy_document.sts.json}"
 }
