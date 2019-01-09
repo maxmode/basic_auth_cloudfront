@@ -19,7 +19,7 @@ Create file index.tf with your configuration:
 
 provider "aws" {
   version = "~> 1.12"
-  // Region "us-east-1" will establish Cloudfront <==> S3 integration faster
+  // Lambda Edge can be created only in region us-east-1
   region = "us-east-1"
   access_key = "XXXXXX"
   secret_key = "XXXXXXXXXXX"
