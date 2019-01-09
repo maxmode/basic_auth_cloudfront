@@ -47,7 +47,7 @@ data "aws_iam_policy_document" "this" {
     ]
 
     resources = [
-      "${aws_lambda_function.this.arn}:*",
+      "${aws_lambda_function.basic_auth_lambda.arn}:*",
     ]
   }
 }
